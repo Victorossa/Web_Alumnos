@@ -1,0 +1,18 @@
+﻿@model Model.Alumnos
+@{
+    ViewBag.Title = "Ver";
+}
+
+<h2>@(Model.Nombres + " " + Model.Apellido1 + " " + Model.Apellido2)</h2>
+
+<dl class="dl-horizontal">
+    <dt>Edad</dt>
+    <dd>@Model.Edad</dd>
+    <dt>Correo</dt>
+    <dd>@Model.Correo</dd>
+    <dt>Telefono</dt>
+    <dd>@Model.Telefono</dd>
+    <dt>Fecha Nac.</dt>
+    <dd>@Model.FechaNacimiento</dd>
+</dl>
+

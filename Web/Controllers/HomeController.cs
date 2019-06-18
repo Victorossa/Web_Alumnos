@@ -15,6 +15,15 @@ namespace Web.Controllers
             return View(alumno.Listar());
         }
 
+        public ActionResult Ver(int id)
+        {
+            return View(alumno.Obtener(id));
+        }
+
+        public ActionResult Crud(int id)
+        {
+            return View(alumno.Listar());
+        }
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
