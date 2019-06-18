@@ -14,7 +14,7 @@ namespace Model
    
         public Alumnos()
         {
-            Cursos = new HashSet<Cursos>();
+            Cursos = new List<Cursos>();
         }
 
         [Key]
@@ -63,27 +63,6 @@ namespace Model
             return alumnos;
         }
 
-        public Alumnos Obtener(int id)
-        {
-            var alumno = new Alumnos();
-            try
-            {
-                using (var context = new BaseDeDatosContext())
-                {
-                    alumno = context.Alumnos
-                                    .Include("Ciudades")
-                                    .Where(x => x.Alumno_Id == id)
-                                    .Single();
-                }
-            }
-            catch (Exception e)
-            {
-                throw new Exception(e.Message);
-            }
-
-            return alumno;
-        }
-
         //public Alumnos Obtener(int id)
         //{
         //    var alumno = new Alumnos();
@@ -92,7 +71,7 @@ namespace Model
         //        using (var context = new BaseDeDatosContext())
         //        {
         //            alumno = context.Alumnos
-        //                            .Include("Ciudades").Include("Cursos")
+        //                            .Include("Ciudades")
         //                            .Where(x => x.Alumno_Id == id)
         //                            .Single();
         //        }
@@ -104,6 +83,27 @@ namespace Model
 
         //    return alumno;
         //}
+
+        public Alumnos Obtener(int id)
+        {
+            var alumno = new Alumnos();
+            try
+            {
+                using (var context = new BaseDeDatosContext())
+                {
+                    alumno = context.Alumnos
+                                    .Include("Ciudades").Include("Cursos")
+                                    .Where(x => x.Alumno_Id == id)
+                                    .Single();
+                }
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+
+            return alumno;
+        }
 
     }
 }

@@ -19,19 +19,44 @@
             <dd>@Model.FechaNacimiento</dd>
             <dt>Ciudad</dt>
             <dd>@Model.Ciudades.NombreCiudad </dd>
+
+
         </dl>
 
-        <a class="btn btn-default" href="~/Personas/Edit/@Model.Alumno_Id" title="Editar">
-            <i class="glyphicon glyphicon-pencil"></i>
-        </a>
-        <a class="btn btn-danger" href="~/Personas/Delete/@Model.Alumno_Id" title="Eliminar">
-            <i class="glyphicon glyphicon-remove"></i>
-        </a>
-        <a class="btn btn-default" href="~/AlumnosDiseno/Index" title="Volver a la Lista">
-            <i class="glyphicon glyphicon-arrow-right"></i>
-        </a>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading">Cursos Tomados</div>
+        <div class="panel-body">
+            <ul class="list-group">
+                @foreach (var c in Model.Cursos)
+                {
+                    <li class="list-group-item">
+                        @c.NombreCurso
+                    </li>
+                }
+            </ul>
+        </div>
+
+        <div class="well well-lg">
+            <a class="btn btn-default" href="~/Personas/Edit/@Model.Alumno_Id" title="Editar">
+                <i class="glyphicon glyphicon-pencil"></i>
+            </a>
+            <a class="btn btn-danger" href="~/Personas/Delete/@Model.Alumno_Id" title="Eliminar">
+                <i class="glyphicon glyphicon-remove"></i>
+            </a>
+            <a class="btn btn-default" href="~/AlumnosDiseno/Index" title="Volver a la Lista">
+                <i class="glyphicon glyphicon-arrow-right"></i>
+            </a>
+
+        </div>
+
+
+
 
     </div>
+
+
 </div>
 
 
