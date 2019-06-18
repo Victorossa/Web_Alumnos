@@ -194,7 +194,7 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\ListarAlumnos.cshtml" />
-    <Content Include="Views\Home\Ver.cshtml" />
+    <Content Include="Views\AlumnosDiseno\Ver.cshtml" />
     <Content Include="Views\Alumnos\Create.cshtml" />
     <Content Include="Views\Alumnos\Delete.cshtml" />
     <Content Include="Views\Alumnos\Details.cshtml" />

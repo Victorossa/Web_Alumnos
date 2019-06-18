@@ -16,25 +16,6 @@ namespace Web.Controllers
         {
             return View();
         }
-
-        public ActionResult Ver(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Alumnos alumnos = db.Alumnos.Find(id);
-            if (alumnos == null)
-            {
-                return HttpNotFound();
-            }
-            return View(alumnos);
-        }
-
-        public ActionResult Crud(int id)
-        {
-            return View(alumno.Listar());
-        }
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
