@@ -71,7 +71,7 @@ namespace Model
                 using (var context = new BaseDeDatosContext())
                 {
                     alumno = context.Alumnos
-                                    .Include("Cursos")
+                                    .Include("Ciudades")
                                     .Where(x => x.Alumno_Id == id)
                                     .Single();
                 }

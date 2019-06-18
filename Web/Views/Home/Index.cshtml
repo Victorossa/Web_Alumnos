@@ -1,45 +1,31 @@
-﻿@model List<Model.Alumnos>
-<h2>Alumnos</h2>
+﻿@{
+    ViewBag.Title = "Home Page";
+}
 
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <th style="width:150px">Nombres</th>
-            <th style="width:150px">Primer Apellido</th>
-            <th style="width:150px">Segdo. Apellido</th>
-            <th style="width:50px">Edad</th>
-            <th style="width:200px">Correo</th>
-            <th style="width:100px">Telefono</th>
-            <th style="width:180px">F. Nacimiento</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var p in Model)
-        {
-            <tr>
-                <td>@p.Nombres</td>
-                <td>@p.Apellido1</td>
-                <td>@p.Apellido2</td>
-                <td>@p.Edad</td>
-                <td>@p.Correo</td>
-                <td>@p.Telefono</td>
-                <td>@p.FechaNacimiento</td>
+<div class="jumbotron">
+    <h1>ASP.NET</h1>
+    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
+    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+</div>
 
-                <td class="text-right">
-                    <a class="btn btn-default" href="~/Personas/Edit/@p.Alumno_Id" title="Editar">
-                        <i class="glyphicon glyphicon-pencil"></i>
-                    </a>
-                    <a class="btn btn-success" href="~/Home/Ver/@p.Alumno_Id" title="Detalles">
-                        <i class="glyphicon glyphicon-eye-open"></i>
-                    </a>
-                    <a class="btn btn-danger" href="~/Personas/Delete/@p.Alumno_Id" title="Eliminar">
-                        <i class="glyphicon glyphicon-remove"></i>
-                    </a>
-
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
-
-
+<div class="row">
+    <div class="col-md-4">
+        <h2>Getting started</h2>
+        <p>
+            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
+            enables a clean separation of concerns and gives you full control over markup
+            for enjoyable, agile development.
+        </p>
+        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <h2>Get more libraries</h2>
+        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
+        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <h2>Web Hosting</h2>
+        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
+        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+    </div>
+</div>

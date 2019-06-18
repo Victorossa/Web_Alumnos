@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 
@@ -9,15 +10,25 @@ namespace Web.Controllers
 {
     public class HomeController : Controller
     {
+        private BaseDeDatosContext db = new BaseDeDatosContext();
         private Alumnos alumno = new Alumnos();
         public ActionResult Index()
         {
-            return View(alumno.Listar());
+            return View();
         }
 
-        public ActionResult Ver(int id)
+        public ActionResult Ver(int? id)
         {
-            return View(alumno.Obtener(id));
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Alumnos alumnos = db.Alumnos.Find(id);
+            if (alumnos == null)
+            {
+                return HttpNotFound();
+            }
+            return View(alumnos);
         }
 
         public ActionResult Crud(int id)

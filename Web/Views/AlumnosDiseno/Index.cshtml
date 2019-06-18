@@ -1,0 +1,47 @@
+﻿@model List<Model.Alumnos>
+<h2>Alumnos</h2>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th style="width:150px">Nombres</th>
+            <th style="width:150px">Primer Apellido</th>
+            <th style="width:150px">Segdo. Apellido</th>
+            <th style="width:50px">Edad</th>
+            <th style="width:200px">Correo</th>
+            <th style="width:100px">Telefono</th>
+            <th style="width:180px">F. Nacimiento</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var p in Model)
+        {
+            <tr>
+                <td>@p.Nombres</td>
+                <td>@p.Apellido1</td>
+                <td>@p.Apellido2</td>
+                <td>@p.Edad</td>
+                <td>@p.Correo</td>
+                <td>@p.Telefono</td>
+                <td>@p.FechaNacimiento</td>
+
+                <td class="text-right">
+                    <a class="btn btn-default" href="~/Personas/Edit/@p.Alumno_Id" title="Editar">
+                        <i class="glyphicon glyphicon-pencil"></i>
+                    </a>
+                    <a class="btn btn-success" href="~/Home/Ver/@p.Alumno_Id" title="Detalles">
+                        <i class="glyphicon glyphicon-eye-open"></i>
+                    </a>
+                    <a class="btn btn-danger" href="~/Personas/Delete/@p.Alumno_Id" title="Eliminar">
+                        <i class="glyphicon glyphicon-remove"></i>
+                    </a>
+
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+
+
