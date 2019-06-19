@@ -1,6 +1,7 @@
 ﻿@model Model.Alumnos
 @{
-    ViewBag.Title = "Ver";
+
+    ViewBag.Title = "Ver Detalles";
 }
 
 <h2>@(Model.Nombres + " " + Model.Apellido1 + " " + Model.Apellido2)</h2>
@@ -38,8 +39,8 @@
             </ul>
         </div>
 
-        <div class="well well-lg">
-            <a class="btn btn-default" href="~/Personas/Edit/@Model.Alumno_Id" title="Editar">
+        <div class="well well-sm">
+            <a class="btn btn-default" href="~/AlumnosDiseno/Crud/@Model.Alumno_Id" title="Editar">
                 <i class="glyphicon glyphicon-pencil"></i>
             </a>
             <a class="btn btn-danger" href="~/Personas/Delete/@Model.Alumno_Id" title="Eliminar">

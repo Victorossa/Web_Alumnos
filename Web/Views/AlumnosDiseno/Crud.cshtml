@@ -1,0 +1,72 @@
+﻿@model Model.Alumnos
+@{
+
+    ViewBag.Title = (Model.Alumno_Id > 0 ? Model.Nombres + " " + Model.Apellido1 + " " + Model.Apellido2 : "Nuevo Registro");
+    List<Model.Cursos> cursos = ViewBag.ListaCursos;
+}
+
+<ol class="breadcrumb">
+    <li><a href="~/">Alumnos</a></li>
+    <li class="active">@(Model.Alumno_Id > 0 ? Model.Nombres + " " + Model.Apellido1 + " " + Model.Apellido2 : "Nuevo Registro")</li>
+</ol>
+<h2>@(Model.Nombres + " " + Model.Apellido1 + " " + Model.Apellido2)</h2>
+
+<div class="panel panel-default">
+    <div class="panel-heading"><strong>Informaciòn Alumno</strong></div>
+    <div class="panel-body">
+        <div class="form-group">
+            @Html.LabelFor(x => x.Nombres)
+            @Html.TextBoxFor(x => x.Nombres, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(x => x.Apellido1)
+            @Html.TextBoxFor(x => x.Apellido1, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(x => x.Apellido2)
+            @Html.TextBoxFor(x => x.Apellido2, new { @class = "form-control" })
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-heading">Asignaturas</div>
+            <div class="panel-body">
+                <ul class="list-group">
+                    @foreach (var c in cursos)
+                    {
+                        var tomado = false;
+                        foreach (var c2 in Model.Cursos)
+                        {
+                            if (c.Curso_Id == c2.Curso_Id)
+                            {
+                                tomado = true;
+                                break;
+                            }
+                        }
+                        <li class="list-group-item">
+                            <label><input type="checkbox" @(tomado ? "checked" : "") name="cursos" value="@c.Curso_Id" />@c.NombreCurso</label>
+                        </li>
+                    }
+                </ul>
+            </div>
+
+            <div class="well well-sm">
+                <a class="btn btn-danger" href="~/Personas/Delete/@Model.Alumno_Id" title="Eliminar">
+                    <i class="glyphicon glyphicon-remove"></i>
+                </a>
+                <a class="btn btn-default" href="~/AlumnosDiseno/Index" title="Volver a la Lista">
+                    <i class="glyphicon glyphicon-arrow-right"></i>
+                </a>
+
+            </div>
+
+
+
+
+        </div>
+
+
+    </div>
+
+
+
+

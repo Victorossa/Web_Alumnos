@@ -1,5 +1,9 @@
 ﻿@model List<Model.Alumnos>
-<h2>Alumnos</h2>
+
+<div class="well well-sm">
+    <h2>Alumnos</h2>
+    <a href="/AlumnosDiseno/Crud">Create New</a>
+</div>
 
 <table class="table table-striped">
     <thead>
@@ -26,7 +30,7 @@
                 <td>@p.FechaNacimiento</td>
 
                 <td class="text-right">
-                    <a class="btn btn-default" href="~/Personas/Edit/@p.Alumno_Id" title="Editar">
+                    <a class="btn btn-default" href="~/AlumnosDiseno/Crud/@p.Alumno_Id" title="Editar">
                         <i class="glyphicon glyphicon-pencil"></i>
                     </a>
                     <a class="btn btn-success" href="~/AlumnosDiseno/Ver/@p.Alumno_Id" title="Detalles">

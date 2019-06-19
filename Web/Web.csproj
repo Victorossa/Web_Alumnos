@@ -201,6 +201,7 @@
     <Content Include="Views\Alumnos\Edit.cshtml" />
     <Content Include="Views\Alumnos\Index.cshtml" />
     <Content Include="Views\AlumnosDiseno\Index.cshtml" />
+    <Content Include="Views\AlumnosDiseno\Crud.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

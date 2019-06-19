@@ -18,11 +18,12 @@ namespace Model
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            //Para Cuando hay tablas de Relacion
             modelBuilder.Entity<Alumnos>()
                 .HasMany(e => e.Cursos)
                 .WithMany(e => e.Alumnos)
                 .Map(m => m.ToTable("AlumnosCursos").MapLeftKey("Alumno_Id").MapRightKey("Curso_Id"));
-
+            //Para cuando se tenga una tabla con un id de seleccion de otra tabla
             modelBuilder.Entity<Ciudades>()
                 .Property(e => e.NombreCiudad)
                 .IsUnicode(false);

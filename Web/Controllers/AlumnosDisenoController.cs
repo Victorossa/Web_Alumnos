@@ -12,6 +12,7 @@ namespace Web.Controllers
     {
         private BaseDeDatosContext db = new BaseDeDatosContext();
         private Alumnos alumno = new Alumnos();
+        private Cursos curso = new Cursos();
         public ActionResult Index()
         {
             return View(alumno.Listar());
@@ -19,7 +20,7 @@ namespace Web.Controllers
 
         public ActionResult Ver(int id)
         {
-          var detalle =  alumno.Obtener(id);
+            var detalle = alumno.Obtener(id);
             if (alumno == null)
             {
                 return HttpNotFound();
@@ -27,9 +28,13 @@ namespace Web.Controllers
             return View(detalle);
         }
 
-        public ActionResult Crud(int id)
+        public ActionResult Crud(int id = 0)
         {
-            return View(alumno.Listar());
+            ViewBag.ListaCursos = curso.ListarCursos();
+            return View(
+                id > 0 ? alumno.Obtener(id)
+                       : alumno
+            );
         }
     }
 }
