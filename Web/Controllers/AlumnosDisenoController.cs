@@ -30,11 +30,27 @@ namespace Web.Controllers
 
         public ActionResult Crud(int id = 0)
         {
+            ViewBag.Ciudad_Id = new SelectList(db.Ciudades, "Ciudad_Id", "NombreCiudad", alumno.Ciudad_Id);
             ViewBag.ListaCursos = curso.ListarCursos();
             return View(
                 id > 0 ? alumno.Obtener(id)
                        : alumno
             );
         }
+
+        public ActionResult Guardar(Alumnos modeloAlumno, int[] cursos = null)
+        {
+            if (cursos != null)
+            {
+                foreach (var c in cursos)
+                {
+                    modeloAlumno.Cursos.Add(new Cursos { Curso_Id = c });
+                }
+            }
+            modeloAlumno.Guardar();
+
+            return Redirect("~/AlumnosDiseno/Crud/" + modeloAlumno.Alumno_Id);
+        }
+
     }
 }
